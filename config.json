@@ -1,0 +1,6 @@
+{
+    "digits" : true,
+    "lowercase" : true,
+    "uppercase" : true,
+    "special" : false
+}

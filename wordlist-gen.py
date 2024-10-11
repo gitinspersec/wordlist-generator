@@ -3,7 +3,6 @@ import itertools
 
 config = json.load(open('config.json'))
 
-
 def generate_wordlist(min_length, max_length):
     wordlist = []
     digits = '0123456789'

@@ -1,6 +1,6 @@
 {
     "digits" : true,
     "lowercase" : false,
-    "uppercase" : false,
+    "uppercase" : true,
     "special" : false
 }

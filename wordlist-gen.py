@@ -20,6 +20,7 @@ def generate_wordlist(min_length, max_length):
         charsets += special
     for length in range(min_length, max_length + 1):
         for word in itertools.product(charsets, repeat=length):
+            print(''.join(word))
             wordlist.append(''.join(word))
 
     return wordlist

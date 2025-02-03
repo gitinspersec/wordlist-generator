@@ -1,6 +1,7 @@
 import json
 import itertools
 
+# Carrega a configuração
 config = json.load(open('config.json'))
 
 def generate_wordlist(min_length, max_length):
@@ -10,18 +11,28 @@ def generate_wordlist(min_length, max_length):
     uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     special = '!@#$%^&*()_+'
     charsets = ''
-    if config['digits']:
-        charsets += digits
-    if config['lowercase']:
-        charsets += lowercase
-    if config['uppercase']:
-        charsets += uppercase
-    if config['special']:
-        charsets += special
+    
+    # Se houver uma palavra personalizada, usamos apenas seus caracteres
+    custom_word = config.get('custom_word')
+    if custom_word:
+        # Opcional: remove duplicatas, mantendo a ordem
+        charsets = ''.join(dict.fromkeys(custom_word))
+    else:
+        if config.get('digits'):
+            charsets += digits
+        if config.get('lowercase'):
+            charsets += lowercase
+        if config.get('uppercase'):
+            charsets += uppercase
+        if config.get('special'):
+            charsets += special
+
+    # Gera as combinações para cada tamanho entre min_length e max_length
     for length in range(min_length, max_length + 1):
         for word in itertools.product(charsets, repeat=length):
-            print(''.join(word))
-            wordlist.append(''.join(word))
+            generated_word = ''.join(word)
+            print(generated_word)
+            wordlist.append(generated_word)
 
     return wordlist
 

@@ -1,6 +1,7 @@
 {
-    "digits" : true,
-    "lowercase" : false,
-    "uppercase" : true,
-    "special" : false
+    "digits" : false,
+    "lowercase" : true,
+    "uppercase" : false,
+    "special" : false,
+    "custom_word": "plsfireme"
 }
